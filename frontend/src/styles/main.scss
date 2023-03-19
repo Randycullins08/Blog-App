@@ -1,7 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
 
 @import "./navbar.scss";
-@import "./error-page.scss";
+@import "./pages/error-page.scss";
+@import "./pages/home-page.scss";
+@import "./components/blog-details.scss";
 
 body {
   margin: 0;

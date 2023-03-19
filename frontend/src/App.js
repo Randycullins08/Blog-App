@@ -1,8 +1,10 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
-import Home, { blogLoader } from "./pages/Home";
+import Home from "./pages/Home";
 import ErrorPage from "./pages/ErrorPage";
+
+import { blogLoader } from "./helpers";
 
 const router = createBrowserRouter([
   {
