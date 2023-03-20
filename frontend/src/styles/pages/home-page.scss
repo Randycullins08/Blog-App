@@ -1,6 +1,66 @@
 .home-container {
   display: grid;
-  grid-template-columns: 3fr 1fr;
+  grid-template-columns: 2fr 1fr;
   gap: 100px;
   margin: 2em;
+
+  .form-wrapper {
+    height: 30em;
+    background-color: #fff;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
+    border-radius: 10px;
+    padding: 2em;
+    margin: 2em;
+
+    form {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+
+      h2 {
+        text-align: center;
+        color: rgb(48, 48, 255);
+      }
+
+      .input-wrapper {
+        display: flex;
+        flex-direction: column;
+
+        input {
+          margin-top: 1em;
+        }
+
+        input[type="text"] {
+          line-height: 1.5em;
+        }
+
+        textarea {
+          margin-top: 1em;
+        }
+      }
+
+      .button-wrapper {
+        width: 100%;
+        text-align: center;
+        margin-top: 1em;
+
+        button {
+          width: 80%;
+          padding: 1.5em;
+          font-size: 1em;
+          border-radius: 15px;
+          background-color: rgb(48, 48, 255);
+          color: #fff;
+
+          &:hover {
+            background-color: #fff;
+            color: rgb(48, 48, 255);
+
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
 }

@@ -1,10 +1,11 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
-import Home from "./pages/Home";
+import Home, { blogAction, blogLoader } from "./pages/Home";
 import ErrorPage from "./pages/ErrorPage";
 
-import { blogLoader } from "./helpers";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,8 @@ const router = createBrowserRouter([
         index: true,
         element: <Home />,
         loader: blogLoader,
+        action: blogAction,
+        errorElement: <ErrorPage />,
       },
 
       {
@@ -30,6 +33,7 @@ function App() {
   return (
     <div className="App">
       <RouterProvider router={router} />
+      <ToastContainer />
     </div>
   );
 }
