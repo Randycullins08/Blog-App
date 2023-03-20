@@ -1,0 +1,87 @@
+.home-container {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 2fr 1fr;
+      grid-template-columns: 2fr 1fr;
+  gap: 100px;
+  margin: 2em;
+}
+
+.home-container .form-wrapper {
+  height: 30em;
+}
+
+.home-container .form-wrapper form {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.home-container .form-wrapper form h2 {
+  text-align: center;
+  color: #3030ff;
+  margin-bottom: 0;
+}
+
+.home-container .form-wrapper form .input-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.home-container .form-wrapper form .input-wrapper label {
+  margin-top: 1em;
+  color: #3030ff;
+  font-size: 1.2em;
+  font-weight: bolder;
+}
+
+.home-container .form-wrapper form .input-wrapper input {
+  margin-top: 1em;
+  border-radius: 10px;
+  padding: 0.5em;
+}
+
+.home-container .form-wrapper form .input-wrapper input[type="text"] {
+  line-height: 1.5em;
+}
+
+.home-container .form-wrapper form .input-wrapper textarea {
+  margin-top: 1em;
+  border-radius: 10px;
+  line-height: 1.5em;
+}
+
+.home-container .form-wrapper form .button-wrapper {
+  width: 100%;
+  text-align: center;
+  margin-top: 1em;
+}
+
+.home-container .form-wrapper form .button-wrapper button {
+  width: 50%;
+  padding: 1.5em;
+  font-size: 1em;
+  border-radius: 15px;
+  background-color: #3030ff;
+  color: #fff;
+}
+
+.home-container .form-wrapper form .button-wrapper button:hover {
+  background-color: #fff;
+  color: #3030ff;
+  cursor: pointer;
+}
+/*# sourceMappingURL=home-page.css.map */

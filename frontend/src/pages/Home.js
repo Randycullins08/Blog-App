@@ -4,8 +4,6 @@ import { addBlog, getBlogs } from "../helpers";
 import AddBlogForm from "../components/AddBlogForm";
 import BlogDetails from "../components/BlogDetails";
 
-import { toast } from "react-toastify";
-
 export const blogLoader = async () => {
   const blogs = await getBlogs();
 
@@ -13,16 +11,20 @@ export const blogLoader = async () => {
 };
 
 export const blogAction = async ({ request }) => {
-  const data = await request.formData();
-  const formData = Object.fromEntries(data);
+  switch (request.method) {
+    case "POST": {
+      const formData = await request.formData();
+      const title = formData.get("title");
+      const author = formData.get("author");
+      const content = formData.get("content");
 
-  const blogAuthor = formData.blogAuthor;
-  const blogTitle = formData.blogTitle;
-  const blogContent = formData.blogContent;
+      return addBlog(title, author, content);
+    }
 
-  await addBlog(blogAuthor, blogTitle, blogContent);
-
-  return toast.success("New Blog Added");
+    default: {
+      throw new Error("Error in action");
+    }
+  }
 };
 
 export default function Home() {
