@@ -1,3 +1,4 @@
+import { redirect } from "react-router-dom";
 import { toast } from "react-toastify";
 
 export const getBlogs = async () => {
@@ -44,9 +45,15 @@ export const addBlog = async (title, author, content) => {
 export const deleteBlog = async (id) => {
   await fetch(`http://127.0.0.1:4000/blogs/${id}`, {
     method: "DELETE",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
   })
     .then((res) => res.json)
     .catch((err) => console.error("Error deleting blog", err));
 
-  return toast.success("Blog Deleted");
+  toast.error("Blog Deleted");
+
+  return redirect("/");
 };
