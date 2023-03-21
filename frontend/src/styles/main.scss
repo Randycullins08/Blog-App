@@ -5,6 +5,11 @@
 @import "./pages/home-page.scss";
 @import "./components/blog-details.scss";
 
+:root {
+  --warning: 4 66% 63%;
+  --bkg: 190 60% 98%;
+}
+
 body {
   margin: 0;
   font-family: "Poppins", sans-serif;

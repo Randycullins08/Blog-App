@@ -40,3 +40,13 @@ export const addBlog = async (title, author, content) => {
     throw new Error("Error adding new blog");
   }
 };
+
+export const deleteBlog = async (id) => {
+  await fetch(`http://127.0.0.1:4000/blogs/${id}`, {
+    method: "DELETE",
+  })
+    .then((res) => res.json)
+    .catch((err) => console.error("Error deleting blog", err));
+
+  return toast.success("Blog Deleted");
+};

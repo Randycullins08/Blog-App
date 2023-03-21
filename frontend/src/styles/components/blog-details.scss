@@ -1,6 +1,7 @@
 .blog-details {
   background-color: #fff;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
+  position: relative;
   border-radius: 10px;
   padding: 2em;
   margin: 2em;
@@ -15,5 +16,22 @@
 
   p {
     font-size: 0.9em;
+  }
+
+  button {
+    position: absolute;
+    top: 2em;
+    right: 2em;
+    cursor: pointer;
+    background-color: hsl(var(--warning) / 0.1);
+    border: 2px solid hsl(var(--warning));
+    color: hsl(var(--warning));
+    padding: 0.5em;
+    border-radius: 50%;
+
+    &:hover {
+      background-color: hsl(var(--warning));
+      color: hsl(var(--bkg));
+    }
   }
 }

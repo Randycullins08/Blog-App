@@ -6,6 +6,7 @@ import ErrorPage from "./pages/ErrorPage";
 
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import BlogPage, { singleBlogLoader } from "./pages/BlogPage";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,11 @@ const router = createBrowserRouter([
         loader: blogLoader,
         action: blogAction,
         errorElement: <ErrorPage />,
+      },
+      {
+        path: "blog/:id",
+        element: <BlogPage />,
+        loader: singleBlogLoader,
       },
 
       {
