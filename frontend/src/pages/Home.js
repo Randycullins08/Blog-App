@@ -1,7 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 import { addBlog, getBlogs } from "../helpers";
 
-import AddBlogForm from "../components/AddBlogForm";
+import AddBlogForm from "../forms/AddBlogForm";
 import BlogDetails from "../components/BlogDetails";
 
 export const blogLoader = async () => {

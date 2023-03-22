@@ -34,4 +34,18 @@
       color: hsl(var(--bkg));
     }
   }
+
+  .edit-button {
+    position: absolute;
+    right: 6em;
+    background-color: #f1f1f1;
+    color: #333;
+    border: 2px solid #333;
+
+    &:hover {
+      background-color: #333;
+      color: #f1f1f1;
+      cursor: pointer;
+    }
+  }
 }
