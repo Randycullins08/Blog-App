@@ -10,6 +10,7 @@ export default function BlogDetails({ blog }) {
       <h4>Author: {blog.author}</h4>
       <p>{blog.content}</p>
       <p>Created: {moment(blog.createdAt).format("MMM Do YYYY")}</p>
+      <p>Updated: {moment(blog.updatedAt).format("MMM Do YYYY")}</p>
     </div>
   );
 }

@@ -12,7 +12,7 @@ const newBlog = async (req, res) => {
 };
 
 const getBlogs = async (req, res) => {
-  const blogs = await Blog.find({}).sort({ createdAt: -1 });
+  const blogs = await Blog.find({}).sort({ updatedAt: -1, createdAt: -1 });
 
   res.status(200).json({ message: "Blogs Found", blogs });
 };

@@ -1,3 +1,4 @@
+import { XCircleIcon } from "@heroicons/react/24/outline";
 import { useEffect, useRef } from "react";
 import { useFetcher } from "react-router-dom";
 
@@ -17,6 +18,12 @@ export default function EditBlogForm({ blog, setModalOpen }) {
 
   return (
     <fetcher.Form method="put" className="edit-blog-form" ref={formRef}>
+      <XCircleIcon
+        className="close-button"
+        width={50}
+        onClick={() => setModalOpen(false)}
+      />
+
       <h1>Edit Blog</h1>
 
       <div className="edit-input">

@@ -1,9 +1,25 @@
 .edit-blog-form {
   height: 100%;
   display: grid;
+  position: relative;
   place-items: center;
   h1 {
     text-align: center;
+  }
+
+  .close-button {
+    position: absolute;
+    top: 1em;
+    right: 2em;
+    background-color: #f1f1f1;
+    color: #333;
+    border-radius: 50%;
+
+    &:hover {
+      background-color: #333;
+      color: #f1f1f1;
+      cursor: pointer;
+    }
   }
 
   .edit-input {
