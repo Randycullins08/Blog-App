@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Form, useLoaderData } from "react-router-dom";
 
 import { TrashIcon, PencilIcon } from "@heroicons/react/24/outline";
-import { deleteBlog } from "../helpers";
+import { deleteBlog, updateBlog } from "../helpers";
 import Modal from "../components/Modal";
 import EditBlogForm from "../forms/EditBlogForm";
 
@@ -20,8 +20,29 @@ export const singleBlogLoader = async ({ params }) => {
   return { blog };
 };
 
-export const singleBlogAction = async ({ params }) => {
-  return deleteBlog(params.id);
+export const singleBlogAction = async ({ params, request }) => {
+  switch (request.method) {
+    case "PUT": {
+      const formData = await request.formData();
+      const title = formData.get("title");
+      const author = formData.get("author");
+      const content = formData.get("content");
+      const blogData = {
+        id: params.id,
+        title,
+        author,
+        content,
+      };
+
+      return updateBlog(blogData);
+    }
+    case "DELETE": {
+      return deleteBlog(params.id);
+    }
+    default: {
+      throw new Error("Error submitting form!");
+    }
+  }
 };
 
 export default function BlogPage() {
@@ -54,7 +75,7 @@ export default function BlogPage() {
       </Form>
 
       <Modal isOpen={modalOpen} onRequestClose={() => setModalOpen(false)}>
-        <EditBlogForm blog={blog.blog} />
+        <EditBlogForm blog={blog.blog} setModalOpen={setModalOpen} />
       </Modal>
     </div>
   );

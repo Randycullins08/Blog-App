@@ -1,9 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap");
 
-@import "./navbar.scss";
+@import "./components/navbar.scss";
 @import "./pages/error-page.scss";
 @import "./pages/home-page.scss";
 @import "./components/blog-details.scss";
+@import "./components/edit-blog-form.scss";
 
 :root {
   --warning: 4 66% 63%;
