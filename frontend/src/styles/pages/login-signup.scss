@@ -1,0 +1,22 @@
+.login-signup-container {
+  margin: 10em;
+  background-color: #f1f1f1;
+  border-radius: 20px;
+
+  .error {
+    padding: 10px;
+    background-color: #ffefef;
+    border: 1px solid #e7195a;
+    color: #e7195a;
+    border-radius: 4px;
+    margin: 20px 0;
+  }
+
+  a {
+    margin: 1em;
+
+    &:hover {
+      color: rgb(48, 48, 255);
+    }
+  }
+}
