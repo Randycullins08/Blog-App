@@ -5,8 +5,22 @@
   background-color: #fff;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 
   a {
     margin: 1em;
+  }
+
+  .login-logout-wrapper {
+    button {
+      margin: 1em;
+      border: none;
+      background-color: transparent;
+      font-size: 1em;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
   }
 }

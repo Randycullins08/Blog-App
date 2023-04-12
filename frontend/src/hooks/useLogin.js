@@ -2,14 +2,14 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 import { useAuthContext } from "./useAuthContext";
 
-export const useSignup = () => {
+export const useLogin = () => {
   const [isLoading, setIsLoading] = useState(false);
   const { dispatch } = useAuthContext();
 
-  const signup = async (email, password) => {
+  const login = async (email, password) => {
     setIsLoading(true);
 
-    const response = await fetch("http://127.0.0.1:4000/signup", {
+    const response = await fetch("http://127.0.0.1:4000/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),
@@ -27,11 +27,11 @@ export const useSignup = () => {
 
       dispatch({ type: "LOGIN", payload: data });
 
-      toast.success("Signup Successful");
+      toast.success("Login Successful");
 
       setIsLoading(false);
     }
   };
 
-  return { signup, isLoading };
+  return { login, isLoading };
 };

@@ -1,16 +1,20 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useSignup } from "../hooks/useSignup";
 
 export default function SignupPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { signup, isLoading, error } = useSignup();
+  const navigate = useNavigate();
+
+  const { signup, isLoading } = useSignup();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     await signup(email, password);
+
+    navigate("/");
   };
 
   return (
@@ -41,8 +45,6 @@ export default function SignupPage() {
         <div className="button-wrapper" style={{ margin: "2em" }}>
           <button disabled={isLoading}>Sign Up</button>
         </div>
-
-        {error && <div className="error">{error}</div>}
 
         <Link to="/login">Log In</Link>
       </form>

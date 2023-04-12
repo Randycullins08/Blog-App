@@ -1,13 +1,17 @@
-import { useLoaderData } from "react-router-dom";
+import { redirect, useLoaderData } from "react-router-dom";
 import { addBlog, getBlogs } from "../helpers";
 
 import AddBlogForm from "../forms/AddBlogForm";
 import BlogDetails from "../components/BlogDetails";
 
 export const blogLoader = async () => {
-  const blogs = await getBlogs();
+  if (localStorage.getItem("user")) {
+    const blogs = await getBlogs();
 
-  return { blogs };
+    return { blogs };
+  } else {
+    return redirect("/login");
+  }
 };
 
 export const blogAction = async ({ request }) => {
