@@ -5,8 +5,10 @@ import AddBlogForm from "../forms/AddBlogForm";
 import BlogDetails from "../components/BlogDetails";
 
 export const blogLoader = async () => {
+  const user = JSON.parse(localStorage.getItem("user"));
+
   if (localStorage.getItem("user")) {
-    const blogs = await getBlogs();
+    const blogs = await getBlogs(user);
 
     return { blogs };
   } else {

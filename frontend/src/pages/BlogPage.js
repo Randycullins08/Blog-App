@@ -8,7 +8,13 @@ import Modal from "../components/Modal";
 import EditBlogForm from "../forms/EditBlogForm";
 
 export const singleBlogLoader = async ({ params }) => {
-  const blog = await fetch(`http://127.0.0.1:4000/blogs/${params.id}`)
+  const user = JSON.parse(localStorage.getItem("user"));
+
+  const blog = await fetch(`http://127.0.0.1:4000/blogs/${params.id}`, {
+    headers: {
+      Authorization: `Bearer ${user.token}`,
+    },
+  })
     .then((res) => res.json())
     .then((data) => data.blog)
     .catch((err) => console.error(err));

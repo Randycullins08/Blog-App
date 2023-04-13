@@ -1,8 +1,12 @@
 import { redirect } from "react-router-dom";
 import { toast } from "react-toastify";
 
-export const getBlogs = async () => {
-  const blogs = await fetch("http://127.0.0.1:4000/blogs")
+export const getBlogs = async (user) => {
+  const blogs = await fetch("http://127.0.0.1:4000/blogs", {
+    headers: {
+      Authorization: `Bearer ${user.token}`,
+    },
+  })
     .then((res) => res.json())
     .then((data) => data.blogs)
     .catch((err) => {
@@ -14,6 +18,8 @@ export const getBlogs = async () => {
 };
 
 export const addBlog = async (title, author, content) => {
+  const user = JSON.parse(localStorage.getItem("user"));
+
   const blog = {
     title,
     author,
@@ -27,6 +33,7 @@ export const addBlog = async (title, author, content) => {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
+        Authorization: `Bearer ${user.token}`,
       },
     })
       .then((res) => res.json)
@@ -43,12 +50,15 @@ export const addBlog = async (title, author, content) => {
 };
 
 export const updateBlog = async (blogData) => {
+  const user = JSON.parse(localStorage.getItem("user"));
+
   await fetch(`http://127.0.0.1:4000/blogs/${blogData.id}`, {
     method: "PUT",
     body: JSON.stringify(blogData),
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
+      Authorization: `Bearer ${user.token}`,
     },
   })
     .then((res) => res.json())
@@ -62,11 +72,14 @@ export const updateBlog = async (blogData) => {
 };
 
 export const deleteBlog = async (id) => {
+  const user = JSON.parse(localStorage.getItem("user"));
+
   await fetch(`http://127.0.0.1:4000/blogs/${id}`, {
     method: "DELETE",
     headers: {
       Accept: "application/json",
       "Content-Type": "application/json",
+      Authorization: `Bearer ${user.token}`,
     },
   })
     .then((res) => res.json)
