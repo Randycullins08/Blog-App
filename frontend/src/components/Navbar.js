@@ -1,8 +1,10 @@
 import { Link, NavLink, Outlet } from "react-router-dom";
 import { useLogout } from "../hooks/useLogout";
+import { useAuthContext } from "../hooks/useAuthContext";
 
 export default function Navbar() {
   const { logout } = useLogout();
+  const { user } = useAuthContext();
 
   return (
     <>
@@ -12,6 +14,7 @@ export default function Navbar() {
         </NavLink>
 
         <div className="login-logout-wrapper">
+          <div className="user-wrapper">{user.email}</div>
           <Link to="/login">
             <button onClick={logout}>Log out</button>
           </Link>

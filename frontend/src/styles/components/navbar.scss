@@ -12,6 +12,10 @@
   }
 
   .login-logout-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     button {
       margin: 1em;
       border: none;
