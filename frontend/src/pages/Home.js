@@ -17,20 +17,12 @@ export const blogLoader = async () => {
 };
 
 export const blogAction = async ({ request }) => {
-  switch (request.method) {
-    case "POST": {
-      const formData = await request.formData();
-      const title = formData.get("title");
-      const author = formData.get("author");
-      const content = formData.get("content");
+  const formData = await request.formData();
+  const title = formData.get("title");
+  const author = formData.get("author");
+  const content = formData.get("content");
 
-      return addBlog(title, author, content);
-    }
-
-    default: {
-      throw new Error("Error in action");
-    }
-  }
+  return addBlog(title, author, content);
 };
 
 export default function Home() {
