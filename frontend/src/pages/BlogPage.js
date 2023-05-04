@@ -70,7 +70,7 @@ export default function BlogPage() {
       <Form
         method="delete"
         onSubmit={(event) => {
-          if (!window.confirm("Delete this blog")) {
+          if (!window.confirm("Delete this blog?")) {
             event.preventDefault();
           }
         }}

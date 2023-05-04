@@ -36,7 +36,7 @@ export const addBlog = async (title, author, content) => {
         Authorization: `Bearer ${user.token}`,
       },
     })
-      .then((res) => res.json)
+      .then((res) => res.json())
       .catch((err) => {
         console.error("Error adding new blog", err);
         throw new Error("Error adding new blog");
